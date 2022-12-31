@@ -1,0 +1,29 @@
+var223 <- function(x){
+  n <- length(x)
+  mu <- mean(x)
+  S <- 0
+  for (i in 1:n){
+    S <- S + (x[i] - mu)^2
+  }
+  return(S/n)
+}
+
+var224 <- function(x){
+  return(mean((x - mean(x))^2))
+}
+
+cov223 <- function(x,y){
+  n <- length(x)
+  mu_x <- mean(x)
+  mu_y <- mean(y)
+  S <- 0
+  for (i in 1:n){
+    S <- S + (x[i] - mu_x)*(y[i] - mu_y)
+  }
+  return(S/n)
+}
+
+
+cor223 <- function(x,y){
+  return(cov223(x,y)/sqrt(var223(x)*var223(y)))
+}
